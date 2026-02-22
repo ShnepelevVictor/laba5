@@ -1,0 +1,112 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Трекер привычек 2026</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Экран 1 — Главная -->
+      <div id="main-screen" class="screen active">
+        <header>
+          <h1>Мои привычки</h1>
+          <div class="header-btns">
+            <button id="btn-add" class="btn primary">
+              <i class="fa-solid fa-plus"></i> Добавить
+            </button>
+          </div>
+        </header>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-value" id="total-habits">0</div>
+            <div class="stat-label">привычек</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="streak-today">0</div>
+            <div class="stat-label">сегодня</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="completion-today">0%</div>
+            <div class="stat-label">выполнено</div>
+          </div>
+        </div>
+
+        <div class="habits-list" id="habits-list">
+          <!-- карточки привычек будут здесь -->
+        </div>
+
+        <div class="calendar-mini">
+          <div class="calendar-header">
+            <button id="prev-month">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span id="current-month-year">Февраль 2026</span>
+            <button id="next-month">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+        </div>
+      </div>
+
+      <!-- Экран 2 — Форма добавления / редактирования -->
+      <div id="form-screen" class="screen">
+        <header>
+          <button id="btn-back" class="btn icon">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <h1 id="form-title">Новая привычка</h1>
+        </header>
+
+        <form id="habit-form">
+          <input type="hidden" id="edit-id" />
+
+          <label>Название</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Например: Выпить 2 литра воды"
+            required
+          />
+
+          <label>Описание (необязательно)</label>
+          <textarea
+            id="description"
+            rows="3"
+            placeholder="Каждое утро сразу после пробуждения..."
+          ></textarea>
+
+          <label>Цвет</label>
+          <div class="color-picker">
+            <input type="color" id="color" value="#4ade80" />
+          </div>
+
+          <label>Иконка</label>
+          <div class="icons-grid" id="icons-grid">
+            <!-- иконки добавляются в JS -->
+          </div>
+
+          <label>Напоминание (время)</label>
+          <input type="time" id="reminder" />
+
+          <div class="form-actions">
+            <button type="button" id="btn-cancel" class="btn secondary">
+              Отмена
+            </button>
+            <button type="submit" class="btn primary">Сохранить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
